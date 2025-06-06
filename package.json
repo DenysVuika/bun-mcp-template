@@ -1,23 +1,26 @@
 {
 	"name": "mcp-bun-project",
-  "version": "1.0.0",
-  "description": "Simple Model Context Protocol project using Bun",
+	"version": "2.0.0",
+	"description": "Simple Model Context Protocol project using Bun",
 	"module": "index.ts",
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "bunx @modelcontextprotocol/inspector bun index.ts",
+		"start": "bun run index.ts",
+		"inspect": "bunx @modelcontextprotocol/inspector http://localhost:3000/mcp",
 		"lint": "biome check"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@types/bun": "latest"
+		"@types/bun": "latest",
+		"@types/express": "^5.0.2"
 	},
 	"peerDependencies": {
 		"typescript": "^5"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "^1.12.1",
+		"express": "^5.1.0",
 		"zod": "^3.25.55"
 	}
 }

@@ -6,11 +6,16 @@
 
 ## Running the Project
 
-To build and run the project, use the following commands:
+Run the server at http://localhost:3000/mcp with:
 
 ```bash
-bun install
-bun dev
+bun start
+```
+
+Run the inspector with:
+
+```bash
+bun inspect
 ```
 
 The MCP Inspector is up and running at http://127.0.0.1:6274.
@@ -26,3 +31,11 @@ bun lint
 ```
 
 The linter uses [Biome](https://biomejs.dev), which is configured in the `biome.json` file.
+
+### Docker
+
+To run the project in a Docker container, use the following command:
+
+```bash
+docker-compose up
+```
