@@ -28,6 +28,30 @@ server.resource(
     })
 );
 
+// Static resource
+server.resource(
+    "config",
+    "config://app",
+    async (uri) => ({
+        contents: [{
+            uri: uri.href,
+            text: "App configuration here"
+        }]
+    })
+);
+
+// Dynamic resource with parameters
+server.resource(
+    "user-profile",
+    new ResourceTemplate("users://{userId}/profile", { list: undefined }),
+    async (uri, { userId }) => ({
+        contents: [{
+            uri: uri.href,
+            text: `Profile data for user ${userId}`
+        }]
+    })
+);
+
 // Start receiving messages on stdin and sending messages on stdout
 const transport = new StdioServerTransport();
 await server.connect(transport);
