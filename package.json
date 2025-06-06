@@ -1,5 +1,7 @@
 {
 	"name": "mcp-bun-project",
+  "version": "1.0.0",
+  "description": "Simple Model Context Protocol project using Bun",
 	"module": "index.ts",
 	"type": "module",
 	"private": true,
