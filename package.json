@@ -1,13 +1,15 @@
 {
 	"name": "mcp-bun-project",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Simple Model Context Protocol project using Bun",
 	"module": "index.ts",
 	"type": "module",
 	"private": true,
 	"scripts": {
 		"start": "bun run index.ts",
+		"local": "bun run stdio.ts",
 		"inspect": "bunx @modelcontextprotocol/inspector http://localhost:3000/mcp",
+		"inspect-local": "bunx @modelcontextprotocol/inspector bun stdio.ts",
 		"lint": "biome check"
 	},
 	"devDependencies": {
