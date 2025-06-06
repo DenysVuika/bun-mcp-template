@@ -137,3 +137,5 @@ dist
 
 # IDE and editor directories
 /.idea
+/.vscode
+/.cursor
