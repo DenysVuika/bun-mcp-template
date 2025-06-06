@@ -1,5 +1,5 @@
 {
-	"name": "ng-mcp",
+	"name": "mcp-bun-project",
 	"module": "index.ts",
 	"type": "module",
 	"private": true,
