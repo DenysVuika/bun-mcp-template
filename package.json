@@ -4,7 +4,7 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "npx @modelcontextprotocol/inspector bun index.ts",
+		"dev": "bunx @modelcontextprotocol/inspector bun index.ts",
 		"lint": "biome check"
 	},
 	"devDependencies": {
