@@ -17,6 +17,8 @@
 Run the server at http://localhost:3000/mcp with:
 
 ```bash
+bun install
+
 # Streaming Http server
 bun start
 
