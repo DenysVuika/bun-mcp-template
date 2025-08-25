@@ -1,58 +1,55 @@
-import {
-	McpServer,
-	ResourceTemplate,
-} from '@modelcontextprotocol/sdk/server/mcp.js';
+import { McpServer, ResourceTemplate } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 
 export function getServer() {
-	// Initialize the MCP server
-	const server = new McpServer({
-		name: 'Demo',
-		version: '1.0.0',
-	});
+    // Initialize the MCP server
+    const server = new McpServer({
+        name: 'Demo',
+        version: '1.0.0',
+    });
 
-	// Define tools and resources
-	server.tool('add', { a: z.number(), b: z.number() }, async ({ a, b }) => ({
-		content: [{ type: 'text', text: String(a + b) }],
-	}));
+    // Define tools and resources
+    server.tool('add', { a: z.number(), b: z.number() }, async ({ a, b }) => ({
+        content: [{ type: 'text', text: String(a + b) }],
+    }));
 
-	// Add a dynamic greeting resource
-	server.resource(
-		'greeting',
-		new ResourceTemplate('greeting://{name}', { list: undefined }),
-		async (uri, { name }) => ({
-			contents: [
-				{
-					uri: uri.href,
-					text: `Hello, ${name}!`,
-				},
-			],
-		}),
-	);
+    // Add a dynamic greeting resource
+    server.resource(
+        'greeting',
+        new ResourceTemplate('greeting://{name}', { list: undefined }),
+        async (uri, { name }) => ({
+            contents: [
+                {
+                    uri: uri.href,
+                    text: `Hello, ${name}!`,
+                },
+            ],
+        })
+    );
 
-	// Static resource
-	server.resource('config', 'config://app', async (uri) => ({
-		contents: [
-			{
-				uri: uri.href,
-				text: 'App configuration here',
-			},
-		],
-	}));
+    // Static resource
+    server.resource('config', 'config://app', async (uri) => ({
+        contents: [
+            {
+                uri: uri.href,
+                text: 'App configuration here',
+            },
+        ],
+    }));
 
-	// Dynamic resource with parameters
-	server.resource(
-		'user-profile',
-		new ResourceTemplate('users://{userId}/profile', { list: undefined }),
-		async (uri, { userId }) => ({
-			contents: [
-				{
-					uri: uri.href,
-					text: `Profile data for user ${userId}`,
-				},
-			],
-		}),
-	);
+    // Dynamic resource with parameters
+    server.resource(
+        'user-profile',
+        new ResourceTemplate('users://{userId}/profile', { list: undefined }),
+        async (uri, { userId }) => ({
+            contents: [
+                {
+                    uri: uri.href,
+                    text: `Profile data for user ${userId}`,
+                },
+            ],
+        })
+    );
 
-	return server;
+    return server;
 }

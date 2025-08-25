@@ -1,28 +1,29 @@
 {
-	"name": "mcp-bun-project",
-	"version": "3.0.0",
-	"description": "Simple Model Context Protocol project using Bun",
-	"module": "index.ts",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"start": "bun run index.ts",
-		"local": "bun run stdio.ts",
-		"inspect": "bunx @modelcontextprotocol/inspector http://localhost:3000/mcp",
-		"inspect-local": "bunx @modelcontextprotocol/inspector bun stdio.ts",
-		"lint": "oxlint ."
-	},
-	"devDependencies": {
-		"@types/bun": "latest",
-		"@types/express": "^5.0.3",
-		"oxlint": "^1.12.0"
-	},
-	"peerDependencies": {
-		"typescript": "^5"
-	},
-	"dependencies": {
-		"@modelcontextprotocol/sdk": "^1.17.4",
-		"express": "^5.1.0",
-		"zod": "^3.25.55"
-	}
+  "name": "mcp-bun-project",
+  "version": "3.1.0",
+  "description": "Simple Model Context Protocol project using Bun",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run index.ts",
+    "local": "bun run stdio.ts",
+    "inspect": "bunx @modelcontextprotocol/inspector http://localhost:3000/mcp",
+    "inspect-local": "bunx @modelcontextprotocol/inspector bun stdio.ts",
+    "lint": "oxlint . && prettier . --check"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "^5.0.3",
+    "oxlint": "^1.12.0",
+    "prettier": "^3.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "express": "^5.1.0",
+    "zod": "^3.25.55"
+  }
 }

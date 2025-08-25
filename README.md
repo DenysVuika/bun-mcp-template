@@ -14,7 +14,7 @@
 
 ## Running the Project
 
-Run the server at http://localhost:3000/mcp with:
+Run the server at <http://localhost:3000/mcp> with:
 
 ```bash
 bun install
@@ -35,7 +35,7 @@ bun inspect
 bun inspect-local
 ```
 
-The MCP Inspector is up and running at http://127.0.0.1:6274.
+The MCP Inspector is up and running at <http://127.0.0.1:6274>.
 
 See the [MCP Inspector documentation](https://modelcontextprotocol.io/docs/tools/inspector) for more details.
 
@@ -46,8 +46,6 @@ Lint the project with:
 ```bash
 bun lint
 ```
-
-The linter uses [Biome](https://biomejs.dev), which is configured in the `biome.json` file.
 
 ### Docker
 
