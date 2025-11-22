@@ -9,14 +9,28 @@ export function getServer() {
     });
 
     // Define tools and resources
-    server.tool('add', { a: z.number(), b: z.number() }, async ({ a, b }) => ({
-        content: [{ type: 'text', text: String(a + b) }],
-    }));
+    server.registerTool(
+        'add',
+        {
+            title: 'Addition Tool',
+            description: 'Add two numbers together',
+            inputSchema: {
+                a: z.number().describe('First number to add'),
+                b: z.number().describe('Second number to add'),
+            },
+        },
+        async ({ a, b }) => ({
+            content: [{ type: 'text', text: String(a + b) }],
+        })
+    );
 
     // Add a dynamic greeting resource
-    server.resource(
+    server.registerResource(
         'greeting',
         new ResourceTemplate('greeting://{name}', { list: undefined }),
+        {
+            description: 'A personalized greeting',
+        },
         async (uri, { name }) => ({
             contents: [
                 {
@@ -28,19 +42,30 @@ export function getServer() {
     );
 
     // Static resource
-    server.resource('config', 'config://app', async (uri) => ({
-        contents: [
-            {
-                uri: uri.href,
-                text: 'App configuration here',
-            },
-        ],
-    }));
+    server.registerResource(
+        'config',
+        'config://app',
+        {
+            description: 'Application configuration data',
+            mimeType: 'text/plain',
+        },
+        async (uri) => ({
+            contents: [
+                {
+                    uri: uri.href,
+                    text: 'App configuration here',
+                },
+            ],
+        })
+    );
 
     // Dynamic resource with parameters
-    server.resource(
+    server.registerResource(
         'user-profile',
         new ResourceTemplate('users://{userId}/profile', { list: undefined }),
+        {
+            description: 'User profile information',
+        },
         async (uri, { userId }) => ({
             contents: [
                 {
